@@ -16,8 +16,8 @@ public final class Main {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-
-        new MySlitherJFrame().setVisible(true);
+        
+        new Splash();
 
     }
 }
