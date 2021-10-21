@@ -14,6 +14,9 @@ import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 import javax.swing.table.DefaultTableCellRenderer;
 
+//addedimport java.awt.Color;
+import javafx.scene.paint.Color;
+import java.awt.Color;
 
 final class MySlitherJFrame extends JFrame {
 
@@ -138,7 +141,23 @@ final class MySlitherJFrame extends JFrame {
 
         name = new JTextField("MySlitherEaterBot", 16);
 
+        //getting color from the jcombobox, and making it into a COLOR
         snake = new JComboBox<>(SNAKES);
+        System.out.println("baddiboop");
+        System.out.println(snake.getSelectedItem()); //get color selected
+        String selectedColor = snake.getSelectedItem().toString();
+        String[] snakeColor = selectedColor.split("- ");
+        System.out.println(snakeColor[1]);
+
+        Color color;
+        try {
+            color = ColorFactory.valueOf(snakeColor[1]);
+        } 
+        catch (Exception e) {
+            color = new Color(0xCC7832); // Not defined
+        }
+        canvas.setSnakeColor(color);
+        
         snake.setMaximumRowCount(snake.getItemCount());
 
         useRandomServer = new JCheckBox("use random server", true);
@@ -343,6 +362,8 @@ final class MySlitherJFrame extends JFrame {
                 trySingleConnect();
             }
         }).start();
+
+
     }
 
     private void trySingleConnect() {
