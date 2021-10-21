@@ -14,9 +14,6 @@ import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 import javax.swing.table.DefaultTableCellRenderer;
 
-//addedimport java.awt.Color;
-import javafx.scene.paint.Color;
-import java.awt.Color;
 
 final class MySlitherJFrame extends JFrame {
 
@@ -143,20 +140,10 @@ final class MySlitherJFrame extends JFrame {
 
         //getting color from the jcombobox, and making it into a COLOR
         snake = new JComboBox<>(SNAKES);
-        System.out.println("baddiboop");
-        System.out.println(snake.getSelectedItem()); //get color selected
-        String selectedColor = snake.getSelectedItem().toString();
-        String[] snakeColor = selectedColor.split("- ");
-        System.out.println(snakeColor[1]);
 
-        Color color;
-        try {
-            color = ColorFactory.valueOf(snakeColor[1]);
-        } 
-        catch (Exception e) {
-            color = new Color(0xCC7832); // Not defined
-        }
-        canvas.setSnakeColor(color);
+
+
+
         
         snake.setMaximumRowCount(snake.getItemCount());
 
@@ -308,6 +295,54 @@ final class MySlitherJFrame extends JFrame {
             }
         }, 1, 10);
     }
+
+/*        
+        "00 - purple",
+        "01 - blue",
+        "02 - cyan",
+        "03 - green",
+        "04 - yellow",
+        "05 - orange",
+        "06 - salmon",
+        "07 - red",
+        "08 - violet",
+        "09 - flag: USA",
+        "10 - flag: Russia",
+        "11 - flag: Germany",
+        "12 - flag: Italy",
+        "13 - flag: France",
+        "14 - white/red",
+        "15 - rainbow",
+        "16 - blue/yellow",
+        "17 - white/blue",
+        "18 - red/white",
+        "19 - white",
+        "20 - green/purple",
+*/
+    public Color selectSnakeColor() {
+        switch (snake.getSelectedIndex()) {
+            case 0:
+                return new Color(0x800080);
+            case 1:
+                return new Color(0x0000FF);
+            case 2:
+                return new Color(0x00FFFF);
+            case 3:
+                return new Color(0x008000);
+            case 4:
+                return new Color(0xFFFF00);
+            case 5:
+                return new Color(0xFFA500);
+            case 6:
+                return new Color(0xfa8072);
+            case 7:
+                return new Color(0xFF0000);
+            default:
+                return new Color(0xFFA500);
+            
+        }
+    }
+
 
     void onOpen() {
         switch (status) {
