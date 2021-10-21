@@ -20,6 +20,12 @@ final class Splash implements ActionListener {
         startButton.addActionListener(this);
         startButton.setName("start");
 
+        // Create help button
+        JButton helpButton = new JButton("Help");
+        panel.add(helpButton);
+        helpButton.addActionListener(this);
+        helpButton.setName("help");
+
         // Configure the frame
         splashFrame.setContentPane(panel);
         splashFrame.setTitle("MySlither");
@@ -37,10 +43,17 @@ final class Splash implements ActionListener {
         JButton source = (JButton) event.getSource();
         String name = (String) source.getName();
 
-        // for now, just launch game and close the frame on any button press.
-        // this can be done properly later.
-        new MySlitherJFrame().setVisible(true);
-        splashFrame.dispose();
+        // start the game if start button is pressed
+        if name == "start" {
+            // launch the game and close this current frame
+            new MySlitherJFrame.setVisible(true);
+            splashFrame.dispose();
+        }
+
+        if name == "help" {
+            // launch the help window
+            new Help();
+        }
 
 
     }
