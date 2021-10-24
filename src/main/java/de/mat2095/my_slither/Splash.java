@@ -3,6 +3,7 @@ package de.mat2095.my_slither;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.net.URL;
 
 final class Splash implements ActionListener {
  
@@ -57,9 +58,10 @@ final class Splash implements ActionListener {
         // Configure the frame
         splashFrame.setContentPane(panel);
         splashFrame.setTitle("MySlither");
-        splashFrame.setSize(300,300);
+        splashFrame.setSize(230,230);
         splashFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         splashFrame.setVisible(true);
+        splashFrame.setResizable(false);
     }
 
     /**
