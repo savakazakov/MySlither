@@ -74,13 +74,15 @@ final class MySlitherWebSocketClient extends WebSocketClient {
 
     @Override
     public void onOpen(ServerHandshake sh) {
-        view.log("connected: " + sh.getHttpStatusMessage());
+        //removed sh.getHttpStatusMessage() : unecessary clutter in user log
+        view.log("successfully connected to server");
         view.onOpen();
     }
 
     @Override
     public void onClose(int i, String string, boolean bln) {
-        view.log("closed: " + i + ", " + bln + ", " + string);
+        //removed "closed: " + i + ", " + bln + ", " + string      from log
+        view.log("server connection lost");
         view.onClose();
     }
 
@@ -180,10 +182,10 @@ final class MySlitherWebSocketClient extends WebSocketClient {
     }
 
     private void processPreInitResponse(int[] data) {
-        view.log("sending decrypted, manipulated secret");
+        //view.log("sending decrypted, manipulated secret");  unecessary cultter for user log
         send(decodeSecret(data));
 
-        view.log("sending init-request");
+        //view.log("sending init-request");      unecessary cultter for user log
         send(initRequest);
     }
 
@@ -454,6 +456,7 @@ final class MySlitherWebSocketClient extends WebSocketClient {
             default:
                 view.log("invalid death reason: " + deathReason + "!");
         }
+        view.log("Your rank was "+view.getRank());//-------------------------------------------------------------------------------------------
     }
 
     private void processAddSector(int[] data) {
@@ -707,7 +710,7 @@ final class MySlitherWebSocketClient extends WebSocketClient {
         }
 
         // pre-init request
-        view.log("sending pre-init request");
+        //view.log("sending pre-init request");    unecessary clutter in user log
         send(new byte[]{99});
     }
 
