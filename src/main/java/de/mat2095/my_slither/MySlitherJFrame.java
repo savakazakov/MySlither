@@ -212,10 +212,10 @@ final class MySlitherJFrame extends JFrame {
         getContentPane().add(upperRow, BorderLayout.NORTH);
 
         // === center ===
-        log = new JTextArea("hi");
+        log = new JTextArea("hi, welcome to slither. Click connect to start a game and use the mouse to direct your motion. Hold down click to give yourself a boost.");
         log.setEditable(false);
         log.setLineWrap(true);
-        log.setFont(Font.decode("Monospaced 11"));
+        log.setFont(Font.decode("Monospaced 15"));
         log.setTabSize(4);
         log.getCaret().setSelectionVisible(false);
         log.getInputMap().clear();
@@ -329,9 +329,9 @@ final class MySlitherJFrame extends JFrame {
             setModel(null);
 
             if (useRandomServer.isSelected()) {
-                log("fetching server-list...");
+                log("looking for servers");
                 serverList = MySlitherWebSocketClient.getServerList();
-                log("received " + serverList.length + " servers");
+                log("Found " + serverList.length + " servers");
                 if (serverList.length <= 0) {
                     log("no server found");
                     setStatus(Status.DISCONNECTED);
@@ -362,8 +362,8 @@ final class MySlitherJFrame extends JFrame {
                 return;
             }
         }
-
-        log("connecting to " + client.getURI() + " ...");
+//removed    client.getURI()    from print unecessary clutter to user log
+        log("connecting to server...");
         client.connect();
     }
 
@@ -391,7 +391,8 @@ final class MySlitherJFrame extends JFrame {
     }
 
     void log(String text) {
-        print(String.format("%6d\t%s", System.currentTimeMillis() - startTime, text));
+        //removed System.currentTimeMillls()-startTime  : user doesnt need to know
+        print(String.format("%s", text));
     }
 
     private void print(String text) {
@@ -419,6 +420,10 @@ final class MySlitherJFrame extends JFrame {
 
     void setRank(int newRank, int playerCount) {
         rank.setText(newRank + "/" + playerCount);
+    }
+    String getRank()
+    {
+        return rank.getText();
     }
 
     void setKills(int newKills) {
