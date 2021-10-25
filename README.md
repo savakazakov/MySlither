@@ -1,20 +1,13 @@
 # MySlither
-A Java implementation of the [slither.io](https://slither.io) client.
+A Java implementation of the [slither.io](https://slither.io) client, amended for an SCC210 group project.
 
 ### Features / Screenshots
 ![Screenshot01](https://cloud.githubusercontent.com/assets/11258252/15582289/741d9dbe-2370-11e6-82a8-2dc135f823b6.png)
 
-### Future Features
-- correct snake-length
-- correct snake-thickness
-- respect lag_mult
-- slithering
-- bot-layer
-
 ### Prerequisites
 
-- Java 8 (Darcula causes problems with Java 9+, see https://github.com/bulenkov/Darcula/issues/41)
-- Gradle 5.3 or later
+- Java 8-11
+- Gradle 7 or later
 
 ### Import into IntelliJ IDEA / Usage
 
