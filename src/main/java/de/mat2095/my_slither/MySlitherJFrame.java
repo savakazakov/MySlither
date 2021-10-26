@@ -212,7 +212,7 @@ final class MySlitherJFrame extends JFrame {
         getContentPane().add(upperRow, BorderLayout.NORTH);
 
         // === center ===
-        log = new JTextArea("hi, welcome to slither. Click connect to start a game and use the mouse to direct your motion. Hold down click to give yourself a boost.");
+        log = new JTextArea("Welcome to MySlither. Click connect to start a game, for more information, visit the help window.");
         log.setEditable(false);
         log.setLineWrap(true);
         log.setFont(Font.decode("Monospaced 15"));
@@ -329,7 +329,7 @@ final class MySlitherJFrame extends JFrame {
             setModel(null);
 
             if (useRandomServer.isSelected()) {
-                log("looking for servers");
+                log("Looking for a server to connect to...");
                 serverList = MySlitherWebSocketClient.getServerList();
                 log("Found " + serverList.length + " servers");
                 if (serverList.length <= 0) {
@@ -363,7 +363,7 @@ final class MySlitherJFrame extends JFrame {
             }
         }
 //removed    client.getURI()    from print unecessary clutter to user log
-        log("connecting to server...");
+        log("Connecting to server...");
         client.connect();
     }
 
@@ -391,7 +391,7 @@ final class MySlitherJFrame extends JFrame {
     }
 
     void log(String text) {
-        //removed System.currentTimeMillls()-startTime  : user doesnt need to know
+        //removed System.currentTimeMillls()-startTime  : user doesn't need to know
         print(String.format("%s", text));
     }
 

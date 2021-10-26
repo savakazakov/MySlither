@@ -75,14 +75,14 @@ final class MySlitherWebSocketClient extends WebSocketClient {
     @Override
     public void onOpen(ServerHandshake sh) {
         //removed sh.getHttpStatusMessage() : unecessary clutter in user log
-        view.log("successfully connected to server");
+        view.log("Successfully connected to server!");
         view.onOpen();
     }
 
     @Override
     public void onClose(int i, String string, boolean bln) {
         //removed "closed: " + i + ", " + bln + ", " + string      from log
-        view.log("server connection lost");
+        view.log("Connection to the server has been lost.");
         view.onClose();
     }
 
