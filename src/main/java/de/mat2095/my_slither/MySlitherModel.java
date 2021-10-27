@@ -21,6 +21,8 @@ class MySlitherModel {
     final Map<Integer, Snake> snakes = new LinkedHashMap<>();
     final Map<Integer, Prey> preys = new LinkedHashMap<>();
     final Map<Integer, Food> foods = new LinkedHashMap<>();
+   
+    //The rectangular things that show on screen.
     final boolean[][] sectors;
 
     private long lastUpdateTime;
