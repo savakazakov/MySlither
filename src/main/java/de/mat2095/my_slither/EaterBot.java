@@ -106,7 +106,7 @@ public class EaterBot extends Player {
             //If the distance to the centre of the food mass is less than the sector size,
             //the snake should aim to eat the nearest foods.
             //And not run to just a slightly better region.
-            if(distanceFoodCentre < model.sectorSize * 3)
+            if(distanceFoodCentre < model.sectorSize * 1.5)
             {
                 //Initialize to arbitrarily big values.
                 Food closestFood = null;
