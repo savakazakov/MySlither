@@ -30,13 +30,16 @@ final class MySlitherCanvas extends JPanel {
     private static final float[] SNAKE_HALO_FRACTIONS = new float[]{0.5f, 1f};
     private static final Color[] SNAKE_HALO_COLORS = new Color[]{new Color(0x60287BDE, true), new Color(0x00287BDE, true)};
     private static final Color[] OWN_SNAKE_HALO_COLORS = new Color[]{new Color(0x6039AFFF, true), new Color(0x0039AFFF, true)};
-    private static final Color SNAKE_BODY_COLOR = new Color(0x6A8759);
+    private static final Color SNAKE_BODY_COLOR = new Color(0xffe4e1); //changes enemy default color
     private static final Color OWN_SNAKE_BODY_COLOR = new Color(0xA5C261);
     private static final Color MAP_COLOR = new Color(0xA0A9B7C6, true);
     private static final Color MAP_POSITION_COLOR = new Color(0xE09E2927, true);
     private static final Color NAME_SHADOW_COLOR = new Color(0xC02B2B2B, true);
     private static final Font NAME_FONT = Font.decode("SansSerif-BOLD");
     private static final Font DEBUG_FONT = Font.decode("SansSerif-PLAIN-18");
+
+    //my snake color
+    private Color MYSNAKECOLOR = new Color(0xCC7832);
 
     private boolean[] map;
     private final MySlitherJFrame view;
@@ -126,6 +129,11 @@ final class MySlitherCanvas extends JPanel {
         this.map = map;
     }
 
+    //my code for getting color from selected JCOMBOBOX in JFRAME class
+    public void setSnakeColor(Color col) {
+        MYSNAKECOLOR = col;
+    }
+
     @Override
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
@@ -198,7 +206,7 @@ final class MySlitherCanvas extends JPanel {
             model.snakes.values().forEach(snake -> {
                 double thickness = 16 + snake.body.size() / 4.0;
                 if (snake.body.size() >= 2) {
-                    g.setColor(snake == model.snake ? OWN_SNAKE_BODY_COLOR : SNAKE_BODY_COLOR);
+                    g.setColor(snake == model.snake ? view.selectSnakeColor() : SNAKE_BODY_COLOR); //SELECT COLOR
                     g.setStroke(new BasicStroke((float) thickness, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
 
                     double totalLength = 0; // TODO: respect FAM, ???
