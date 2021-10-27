@@ -25,7 +25,7 @@ public class Help {
         panel.add(howToPlay);
 
         // additional features
-        JLabel additionalFeatures = new JLabel("<html><h2>Top Tips!</h2><p>Whilst MySlither is easy, there are some additional tricks you can do to help you win.<ul><li>Click down and you will 'boost'. This will use some of your score and make you smaller.</li></ul></html>");
+        JLabel additionalFeatures = new JLabel("<html><h2>Top Tips!</h2><p>Whilst MySlither is easy, there are some additional tricks you can do to help you win.<ul><li>Click down and you will 'boost'. This will use some of your score and make you smaller.</li><li>Change the player dropdown from mouse input to 'EaterBot' if you want the built-in bot to take over!</li></ul></html>");
         panel.add(additionalFeatures);
 
         // credits

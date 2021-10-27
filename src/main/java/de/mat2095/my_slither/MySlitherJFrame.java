@@ -189,7 +189,7 @@ final class MySlitherJFrame extends JFrame {
 
         player = new JComboBox<>(PLAYERS.stream().map(p -> p.name).toArray(String[]::new));
         player.setMaximumRowCount(player.getItemCount());
-        player.setSelectedIndex(1);
+        player.setSelectedIndex(0);
 
         rank = new JLabel();
 
