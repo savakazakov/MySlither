@@ -17,7 +17,7 @@ final class Splash implements ActionListener {
     /**
      * Class constructor
      */
-    Splash() {
+    Splash(int dark) {
 
         // Set layouts
         panel.setLayout(layout);
@@ -58,7 +58,12 @@ final class Splash implements ActionListener {
         // Configure the frame
         splashFrame.setContentPane(panel);
         splashFrame.setTitle("MySlither");
+
+        if ( dark == 1 ) {
         splashFrame.setSize(230,230);
+        } else {
+            splashFrame.setSize(300,300);
+        }
         splashFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         splashFrame.setVisible(true);
         splashFrame.setResizable(false);
