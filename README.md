@@ -6,8 +6,11 @@ A Java implementation of the [slither.io](https://slither.io) client, amended fo
 
 ### Prerequisites
 
-- Java 8-11
+- Java 8-11 (11+ works but is unsupported)
 - Gradle 7 or later
+
+### Compatibility notes
+On some systems, the dark theme causes display issues. Please run the program with the arguments 'no-dark' if this occurs.
 
 ### Import into IntelliJ IDEA / Usage
 
